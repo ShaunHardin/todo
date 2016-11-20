@@ -1,2 +1,2 @@
-# todo
-Generic todo app as an excuse to use Redux and maybe Elixir
+# Todo
+Basic todo app built as an excuse to use Redux and to try out Phoenix
