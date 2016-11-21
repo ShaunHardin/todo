@@ -1,13 +1,18 @@
-import { combineReducers } from 'redux';
-import { reducer as form } from 'redux-form';
+const initialState = [
+]
 
-const appReducer = combineReducers({
-  form,
-});
-
-export default function (state, action) {
-  if (action.type === 'LOGOUT') {
-    return appReducer(undefined, action);
+export default function todos(state = initialState, action) {
+  switch(action.type) {
+    case 'ADD_TODO':
+      return [
+        ...state,
+        {
+          id: state.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1,
+          completed: false,
+          text: action.text
+        }
+      ]
+    default:
+      return state;
   }
-  return appReducer(state, action);
 }
